@@ -2,37 +2,35 @@ import json
 import os
 
 def analyze_social_trends():
-    print("--- HUDA-BEAUTY-SHIELD : Analyse NLP en cours ---")
-    
-    # Calcul du chemin absolu pour éviter l'erreur FileNotFoundError
     base_path = os.path.dirname(__file__)
     file_path = os.path.join(base_path, '..', 'data', 'trends.json')
 
     try:
-        with open(file_path, 'r') as f:
-            comments = json.load(f)
+        if not os.path.exists(file_path):
+            return "Fichier data/trends.json introuvable."
 
-        print(f"[INFO] Analyse de {len(comments)} commentaires via Mistral AI (Serveur Marseille).")
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
         
-        for item in comments:
-            text = item['comment'].lower()
-            # Simulation d'analyse de sentiment simplifiée
-            if "love" in text or "amazing" in text:
+        results = []
+        for item in data:
+            # On cherche le texte par priorité : 'comment', puis 'text', puis 'body'
+            content = item.get('comment') or item.get('text') or item.get('body') or "Pas de texte trouvé"
+            user = item.get('user') or item.get('username') or item.get('author') or "Anonyme"
+            
+            text_lower = content.lower()
+            if any(w in text_lower for w in ["love", "amazing", "best", "perfect"]):
                 sentiment = "POSITIF (Love)"
-            elif "too matte" in text or "slow" in text:
-                sentiment = "NÉGATIF (Issue détectée)"
+            elif any(w in text_lower for w in ["matte", "slow", "strong", "issue"]):
+                sentiment = "NÉGATIF (Alerte)"
             else:
                 sentiment = "NEUTRE"
-                
-            print(f"\nUtilisateur: {item['user']}")
-            print(f"Commentaire: {item['comment']}")
-            print(f"Analyse: {sentiment}")
-
-        print("\n[RAPPORT STRATÉGIQUE] Tendance détectée : Forte demande pour 'Rose Gold'.")
-        print("--- Analyse terminée. Données archivées en zone sécurisée. ---")
-
-    except FileNotFoundError:
-        print(f"[ERREUR] Le fichier est introuvable au chemin : {file_path}")
-
-if __name__ == "__main__":
-    analyze_social_trends()
+            
+            results.append({
+                "user": user,
+                "comment": content,
+                "analysis": sentiment
+            })
+        return results
+    except Exception as e:
+        return f"Erreur : {str(e)}"
