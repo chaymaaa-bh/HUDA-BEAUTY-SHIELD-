@@ -1,0 +1,16 @@
+[
+  {"id": "100B", "name": "Milkshake", "L": 92, "a": 12, "b": 15, "desc": "Ultra Fair - Beige"},
+  {"id": "110N", "name": "Angel Food", "L": 88, "a": 13, "b": 14, "desc": "Ultra Fair - Neutral"},
+  {"id": "130G", "name": "Panna Cotta", "L": 85, "a": 14, "b": 19, "desc": "Fair - Golden"},
+  {"id": "200B", "name": "Shortbread", "L": 82, "a": 14, "b": 18, "desc": "Fair - Beige"},
+  {"id": "240N", "name": "Toasted Coconut", "L": 78, "a": 15, "b": 16, "desc": "Light - Neutral"},
+  {"id": "300N", "name": "Latte", "L": 72, "a": 16, "b": 15, "desc": "Light Medium - Neutral"},
+  {"id": "310G", "name": "Amaretti", "L": 68, "a": 17, "b": 21, "desc": "Medium - Golden"},
+  {"id": "340G", "name": "Baklava", "L": 62, "a": 18, "b": 23, "desc": "Medium Tan - Golden"},
+  {"id": "400G", "name": "Macchiato", "L": 55, "a": 19, "b": 22, "desc": "Tan - Golden"},
+  {"id": "430N", "name": "Gingerbread", "L": 50, "a": 20, "b": 18, "desc": "Tan - Neutral"},
+  {"id": "500G", "name": "Mocha", "L": 42, "a": 21, "b": 24, "desc": "Deep - Golden"},
+  {"id": "520R", "name": "Nutmeg", "L": 35, "a": 23, "b": 19, "desc": "Deep - Red"},
+  {"id": "550R", "name": "Chocolate Truffle", "L": 28, "a": 24, "b": 17, "desc": "Rich - Red"},
+  {"id": "600V", "name": "Ganache", "L": 18, "a": 25, "b": 14, "desc": "Ultra Rich - Violet/Cool"}
+]

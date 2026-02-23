@@ -1,0 +1,14 @@
+# --- IA & VISION ---
+numpy
+opencv-python
+mediapipe
+
+# --- IA NLP ---
+transformers
+torch
+
+# --- SÉCURITÉ ---
+cryptography
+
+# --- INTERFACE ---
+streamlit
